@@ -30,9 +30,7 @@ class API:
         
         for x in self.ChannelIDs:
             message_req = self.req.post(self.BASEURL+SendMessageAPI.format(x["id"]), headers=self.headers, json=data)
-
             
-
             if message_req.status_code == 429:
                 time.sleep(10)
             elif message_req.status_code == 200:
